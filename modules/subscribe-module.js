@@ -8,13 +8,6 @@ module.exports.Subscribe = async function (endpoint, arn) {
     Protocol: 'http',
     Endpoint: endpoint
   };
-  if(arn == 'arn:aws:sns:us-east-1:864613434505:awsd-officialcourse-demo-amazon-sns') {
-    input['Attributes'] = {
-      FilterPolicy: JSON.stringify({
-        'http_endpoint': ['yes']
-      })
-    };
-  }
   try {
     return await sns.subscribe(input); 
   } catch (err) {

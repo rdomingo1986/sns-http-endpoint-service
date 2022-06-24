@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   var body = JSON.parse(req.body);
+  console.log('Entró al POST');
 
   if(body.Type == 'SubscriptionConfirmation') {
     try {
@@ -46,7 +47,7 @@ app.post('/', (req, res) => {
   } else {
     console.log('NUEVA NOTIFICACION');
     console.log(util.inspect(body.MessageId, false, null, true));
-    console.log(util.inspect(JSON.parse(body.Message), false, null, true));
+    console.log(util.inspect(body.Message, false, null, true));
     res.send('Done!!!');
   }
 })
