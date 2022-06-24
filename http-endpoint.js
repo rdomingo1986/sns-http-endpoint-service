@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   try {
     (async function () {
       console.log('Creating subscription');
-      const response = await Subscribe('http://' + await GetInstanceMetadata() + ':3000', arn);
+      const response = await Subscribe('http://' + await GetInstanceMetadata() + ':3000', arn, process.argv[3]);
       console.log('Subscription created');
       res.send(response);
     })();
